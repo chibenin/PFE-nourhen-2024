@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "67132721194",
+    "firebase_url": "https://surveillance-app-ef466-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "surveillance-app-ef466",
+    "storage_bucket": "surveillance-app-ef466.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:67132721194:android:2c95e2a11303330d739b53",
+        "android_client_info": {
+          "package_name": "com.example.application"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCirY5X3mTGR91jKrkbKUIY0XoTRigUKDM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
