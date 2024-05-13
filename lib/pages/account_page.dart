@@ -1,13 +1,15 @@
 import 'package:application/components/MyButton.dart';
 import 'package:application/components/squartile.dart';
+import 'package:application/pages/RegisterPage.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:flutter/widgets.dart';
 import '../components/hihi.dart';
+import 'auth.dart';
 
 class AccountPage extends StatefulWidget {
 
-  AccountPage({super.key,});
+  AccountPage({super.key});
 
   @override
   State<AccountPage> createState() => _AccountPageState();
@@ -19,7 +21,7 @@ class _AccountPageState extends State<AccountPage> {
   final passwordController = TextEditingController();
 
   void _navigateToAccountPage(BuildContext context) {
-    Navigator.pushNamed(context, '/ContactPage');
+    Navigator.pushReplacementNamed(context, '/HomePage');
   }
 
   void signUserIn(BuildContext context) async{
@@ -45,7 +47,10 @@ Navigator.pop(context);
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.blueGrey.shade50,
-      appBar: AppBar( title: Text(' Compte ') ,),
+      appBar: AppBar(
+        title: Text('Account',
+            style: TextStyle( fontSize: 20,
+          fontWeight: FontWeight.bold,color: Colors.blue.shade900)) ,),
 
        body: SafeArea(
           child: Center (
@@ -54,40 +59,24 @@ Navigator.pop(context);
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                SizedBox(height: 20),
-                  Icon(
-              Icons.lock_rounded,
-              size: 100,color: Colors.blue.shade900),
+                  Image.asset('asset/images/login.png',),
                   SizedBox(height: 30),
-              
                   MyTextField(
                      controller:emailController,
-                      hintText: 'Email ou Nom utilisateurs...',
+                      hintText: 'Email or name...',
                       obscureText: false
                   ),
-              
-              
-              
                   SizedBox(height: 30),
                   MyTextField(
                     controller: passwordController ,
-                      hintText: 'Mot de passe...',
+                      hintText: 'Password...',
                       obscureText: true,
                   ),
                   SizedBox(height: 10),
-              
-              
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal:25.0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      children: [
-                        Text('oublier le mot de passe ?',
-                        style: TextStyle( color: Colors.grey[600]),),
-                      ],
-                    ),
-                  ),
                   SizedBox(height: 25),
                   MyButton(
+                    color:Colors.blue[900],
+                    text: "Login ",
                     onTap: () => signUserIn(context), // Appeler la fonction _signUserIn lorsque le bouton est appuyé.
               
                   ),
@@ -103,7 +92,7 @@ Navigator.pop(context);
                         )),
                         Padding(
                           padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                          child: Text('Ou continue avec',
+                          child: Text('Or continue with',
                           style: TextStyle(color: Colors.blue.shade900),
                           ),
                         ),
@@ -117,33 +106,36 @@ Navigator.pop(context);
                   ),
                   SizedBox(height: 10),
                   Row(
-              
-                    mainAxisAlignment: MainAxisAlignment.center,
-              
-                    children: [
-              
-                      SquareTile(imagePath: 'asset/images/google.png'),
-              
-                      SizedBox(height: 10),
-              
-                    ]
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        SquareTile(
+                          onTap: ()=> AuthPage().SignInWithGoogle(),
+                          imagePath: 'asset/images/google.png'),
+                        SizedBox(height: 10),
+                      ]
                   ),
                   Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-              
-                        Text('Vous n avez pas un compte ?',
+                        Text("You don't have an account ?" ,
                           style: TextStyle(color: Colors.grey.shade700),),
-              
                         SizedBox(width: 10,),
-              
-                        Text('inscrivez vous',
-                        style: TextStyle(color: Colors.blue,
-                            fontWeight: FontWeight.bold),),
-              
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => RegisterPage()),
+                            );
+                          },
+                          child: Text(
+                            'Register Now',
+                            style: TextStyle(
+                              color: Colors.blue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ],
-              
-              
                    )
                 ],
               ),

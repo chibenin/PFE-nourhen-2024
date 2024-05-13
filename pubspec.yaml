@@ -42,8 +42,18 @@ dependencies:
   firebase_auth: ^4.17.7
   cloud_firestore: ^4.15.10
   firebase: ^9.0.3
-  firebase_database: ^10.5.2
-
+  firebase_database: ^10.5.4
+  google_sign_in: ^6.2.1
+  animated_battery_gauge: ^0.2.0
+  battery_info: ^1.1.1
+  firebase_messaging: ^14.9.1
+  flutter_animated_icons: ^1.0.1
+  firebase_analytics: ^10.10.4
+  shared_preferences: ^2.2.3
+  flutter_local_notifications: ^17.1.1
+  messaging: ^0.2.1
+  http: ^0.13.6
+  intl: ^0.17.0
 dev_dependencies:
   flutter_test:
     sdk: flutter

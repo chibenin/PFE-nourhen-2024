@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 class MyButton extends StatelessWidget {
 
   final Function()? onTap;
-  const MyButton({super.key, required this.onTap});
+  final String text;
+  final Color? color;
+  const MyButton({super.key, required this.onTap, required this.text, required this.color});
 
   @override
   Widget build(BuildContext context) {
@@ -12,11 +14,11 @@ class MyButton extends StatelessWidget {
         padding: EdgeInsets.all(20),
         margin: EdgeInsets.symmetric(horizontal:30 ),
         decoration: BoxDecoration(
-            color: Colors.blue.shade900,
+            color: color,
             borderRadius: BorderRadius.circular(8)),
         child: Center(
           child: Text(
-            "Se connecter",
+            text,
             style: TextStyle(
               color: Colors.white,
               fontWeight: FontWeight.bold,

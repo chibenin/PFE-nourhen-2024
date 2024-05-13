@@ -2,14 +2,13 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 class CrudServices{
   User? user = FirebaseAuth.instance.currentUser;
+
   Future addNewContacts(String name,String phone,String email)
   async {
     Map < String,dynamic> data  ={
       "name":name,
       "email":email,
       "phone":phone,
-
-
     };
     try {
       await FirebaseFirestore.instance
@@ -37,8 +36,6 @@ class CrudServices{
       "name":name,
       "email":email,
       "phone":phone,
-
-
     };
     try {
       await FirebaseFirestore.instance
